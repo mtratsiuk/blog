@@ -24,5 +24,6 @@
     }
   ],
   "doc_title": "misha's blog",
+  "doc_description": "the blog about nothing",
   "strip_html_ext_in_prod_links": true
 }
