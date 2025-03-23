@@ -4,4 +4,4 @@ set -exu
 
 cd "$(dirname "$0")"/..
 
-b3 --root=. --mode=cdn $@
+b3 --root=. --mode=cdn -v $@

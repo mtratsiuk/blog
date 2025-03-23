@@ -21,7 +21,7 @@ jobs:
     - name: Install b3
       run: ./bin/install.sh
 
-    - name: Build Example
+    - name: Build blog posts
       run: ./bin/build.sh --prod -v
 
     - name: Deploy
