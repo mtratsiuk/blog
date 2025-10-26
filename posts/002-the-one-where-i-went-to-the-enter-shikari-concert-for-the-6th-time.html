@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="misha&#39;s blog - The One With CDN For Blog Pictures" />
-  <meta property="og:description" content="So, it&#39;s been almost a year since I made my first (and still only) post here. Obviously, I&#39;m not much of a writer, or perhaps I just don&#39;t have too many bright things to say. And since I&#39;m now using YouTube to spread the joy of recreational programming, that&#39;s probably not going to change anytime soon. So, I&#39;ll just try to use this blog as a more generic personal feed and see where it goes. And what does any feed need nowadays? Pictures!" />
-  <title>misha&#39;s blog - The One With CDN For Blog Pictures</title>
+  <meta property="og:title" content="misha&#39;s blog - The One Where I Went to The Enter Shikari Concert for the 6th Time" />
+  <meta property="og:description" content="My cousin introduced me to Enter Shikari &#39;s music probably somewhere around 2008. In 2013 we went to see them live in Minsk for the first time - was both an amazing concert and a road trip experience. I went to see them play multiple times since then - in Belarus, UK and Netherlands - and was never disappointed. Old songs hit hard, and new albums slowly grow on you after hearing them live." />
+  <title>misha&#39;s blog - The One Where I Went to The Enter Shikari Concert for the 6th Time</title>
   <script>(function () {
   var DARK_THEME_CLASSNAME = "dark";
   var THEME_STORAGE_KEY = "b3-theme"
@@ -492,32 +492,22 @@ blockquote {
 <main class="b3-post border p-1">
   
 <div class="b3-timestamps">
-  <span class="b3-timestamps__created-at">Sun Mar 23 16:34:11 UTC 2025</span>
+  <span class="b3-timestamps__created-at">Sun Oct 26 17:41:16 UTC 2025</span>
   
 </div>
 
-  <h1 id="the-one-with-cdn-for-blog-pictures">The One With CDN For Blog Pictures</h1>
-<p>So, it's been almost a year since I made my first (and still only) post here. Obviously, I'm not much of a writer, or perhaps I just don't have too many bright things to say. And since I'm now using <a href="https://www.youtube.com/@mishtred">YouTube</a> to spread the joy of recreational programming, that's probably not going to change anytime soon. So, I'll just try to use this blog as a more generic personal feed and see where it goes. And what does any feed need nowadays? Pictures!</p>
-<h2 id="pictures-dont-you-need-to-leave-the-house-to-make-those">Pictures? Don't you need to leave the house to make those?</h2>
-<p>Yeah, that's true. But sometimes I do, and now I'll have the proof!</p>
-<p>I'm still running an iPhone SE since there don't seem to be any more usable small-factor smartphones on the market - so I got a compact fixed-lens Sony RX100 VII to shoot with. I have no clue about photography, so expect JPEGs in mostly auto mode.</p>
-<h2 id="cee-dee-what">Cee Dee What?</h2>
-<p><a href="https://en.wikipedia.org/wiki/Content_delivery_network">CDN, Content Delivery Network</a>. This GitHub Pages-hosted blog is sitting behind a <a href="https://developers.cloudflare.com/fundamentals/concepts/how-cloudflare-works/">Cloudflare proxy</a>, so technically, I could have configured CDN caching for assets without implementing any changes in <a href="https://github.com/mtratsiuk/b3">b3</a>. However, I wasn't too excited about storing megabytes of pictures in Git - so we are going to upload them to R2 bucket with public access via a custom domain.</p>
-<p>Here is the implementation <a href="https://github.com/mtratsiuk/b3/compare/6fc2c3aac4bb8d374fb284725f5fa5a3a18b07cd..520113d6136014e1167d21812dcac2b0d981567d">diff</a>. Essentially, we can now run <code>b3 --mode=cdn</code>, and it will: find all image references in markdown (blog post) files; pick those that match <em>assets_to_upload_regexp</em> according to <em>b3.json</em> configuration; upload matched images to S3-compatible bucket; and replace image paths of affected images in markdown source files with their respective public links. Simple!</p>
-<h2 id="just-show-some-pictures-already">Just show some pictures already</h2>
-<p>Fair enough. These are from a quick trip last week in the northeastern Netherlands:</p>
-<p><img src="https://assets.spris.dev/blog/tt3Kl/nqR7nYr2e2ASup76I5vzRWpeewAPejG1X3AnM=.jpg" alt="zwolle">
-<em>Zwolle</em></p>
-<p><img src="https://assets.spris.dev/blog/709/Xa4qCjm+HtgpRb2zeisiPVoLuGLUp2cP3+aJyW4=.jpg" alt="Vecht River">
-<em>Vecht River</em></p>
-<p><img src="https://assets.spris.dev/blog/clQIhXNchdefripXxOrYf2Cc4iXSIIEAVFQyEXecuxQ=.jpg" alt="Niet zwemmen">
-<em>Niet zwemmen!!</em></p>
-<p><img src="https://assets.spris.dev/blog/jIkxCPA1LhryhlXJfvae3rI+Ed6HMUg0jRXnHOd/CtE=.jpg" alt="elburg">
-<em>Elburg</em></p>
-<p><img src="https://assets.spris.dev/blog/r6UWopddG5GI/PVM1puN7ht4iqPJTDhcAACVbx7udGI=.jpg" alt="elburg">
-<em>Elburg</em></p>
-<p><img src="https://assets.spris.dev/blog/Tn//CFusHD5gijCbii7jQ0ZxnVIKYelP/+pMgMjzU9A=.jpg" alt="52.63657467882655, 5.41540789445472">
-<em>52.63657467882655, 5.41540789445472</em></p>
+  <h1 id="the-one-where-i-went-to-the-enter-shikari-concert-for-the-6th-time">The One Where I Went to The Enter Shikari Concert for the 6th Time</h1>
+<p>My cousin introduced me to <a href="https://www.entershikari.com/">Enter Shikari</a>'s music probably somewhere around 2008. In 2013 we went to see them live in Minsk for the first time - was both an amazing concert and a road trip experience. I went to see them play multiple times since then - in Belarus, UK and Netherlands - and was never disappointed. Old songs hit hard, and new albums slowly grow on you after hearing them live.</p>
+<h2 id="technical-bit">Technical Bit</h2>
+<p>As it happens with self-written tools, I had to <a href="https://github.com/mtratsiuk/b3/commit/c018e03ea82be5814f8827a5202f2a9f076f01c1">push</a> a little update to <a href="https://github.com/mtratsiuk/b3">b3</a> again in order to add <code>&lt;video&gt;</code> support.</p>
+<h2 id="the-view-from-the-balcony">The View from the Balcony</h2>
+<p><img src="https://assets.spris.dev/blog/eFngqh+cvZC06cWsghie2XGXiVUTyG3sXa6sQz7zpkQ=.JPG" alt="pic1"></p>
+<p><img src="https://assets.spris.dev/blog/sFI6ODOPOZYamnVhdfPqjaTFBF/dPEJ45jWSUoN7drI=.JPG" alt="pic2"></p>
+<p><img src="https://assets.spris.dev/blog/W9ipsFuw+HJ1VTOX843DJhG76UDjlmUsFXGO4rfz2IE=.JPG" alt="pic3"></p>
+<p><img src="https://assets.spris.dev/blog/qKtezitDmp69NODRizGngUpFpblpjuwV6KYk0kWXSJU=.JPG" alt="pic4"></p>
+<p><img src="https://assets.spris.dev/blog/70y/pN57cKcQO8OYyfTbkz2OKGJI28JaI1FjukuxVdM=.JPG" alt="pic5"></p>
+<p><img src="https://assets.spris.dev/blog//6nTIqxH+DILEj3iJtePid5a2YZzTSPW/Ob6oO88/ps=.MP4" alt="vid1"></p>
+<p><img src="https://assets.spris.dev/blog/UoIrdWIvWaveSwUGlA6oszh1EPmuoKA3dcfP1B3D8Bo=.MP4" alt="vid2"></p>
 <p>🫡</p>
 
 </main>

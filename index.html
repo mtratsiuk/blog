@@ -289,7 +289,8 @@ a:active {
 
 /* Styling markdown-generated content */
 
-img {
+img,
+video {
   display: inline-block;
   max-width: 100%;
   border: var(--border-size-smaller) solid var(--primary-color);
@@ -297,13 +298,14 @@ img {
   margin-bottom: var(--space);
 }
 
-p:has(> img + em) {
+p:has(> img, video + em) {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-p:has(> img + em) > img {
+p:has(> img, video + em)>img,
+video {
   margin-bottom: var(--space-smallest);
 }
 
@@ -489,6 +491,19 @@ blockquote {
     
 <main class="b3-home">
     <div class="b3-posts">
+        
+        <div class="b3-posts__post border p-smaller flex flex-column">
+            <a href="posts/002-the-one-where-i-went-to-the-enter-shikari-concert-for-the-6th-time" class="b3-posts__title">
+                <h3>The One Where I Went to The Enter Shikari Concert for the 6th Time</h3>
+            </a>
+            
+<div class="b3-timestamps">
+  <span class="b3-timestamps__created-at">Sun Oct 26 17:41:16 UTC 2025</span>
+  
+</div>
+
+            <div>My cousin introduced me to <a href="https://www.entershikari.com/">Enter Shikari</a>'s music probably somewhere around 2008. In 2013 we went to see them live in Minsk for the first time - was both an amazing concert and a road trip experience. I went to see them play multiple times since then - in Belarus, UK and Netherlands - and was never disappointed. Old songs hit hard, and new albums slowly grow on you after hearing them live.</div>
+        </div>
         
         <div class="b3-posts__post border p-smaller flex flex-column">
             <a href="posts/001-the-one-with-cdn-for-blog-pictures" class="b3-posts__title">
